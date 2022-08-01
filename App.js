@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
+import { getCurrentTimestamp } from 'react-native/Libraries/Utilities/createPerformanceLogger';
 
 export default function App() {
 
@@ -25,9 +26,13 @@ export default function App() {
        onPress={addTodoList}
        />
      </View>
-     <View>
-       <Text>Lista de tasks</Text>
-     </View>
+     <ScrollView>
+       {todoList.map(todo => 
+       <View
+       key={todo}
+       style={styles.todoItem}
+       ><Text>{todo}</Text></View>)}
+     </ScrollView>
     </View>
   );
 }
@@ -41,5 +46,13 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     marginBottom: 10,
     borderWidth: 1
-  }
+  },
+  todoItem:{
+  marginTop: 10,
+  padding: 20,
+  backgroundColor: '#f2f2f2',
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: 'gray',
+  },
 });
