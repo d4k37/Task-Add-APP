@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
 import { getCurrentTimestamp } from 'react-native/Libraries/Utilities/createPerformanceLogger';
+import Header from './src/components/Header'
 
 export default function App() {
 
@@ -12,8 +13,13 @@ export default function App() {
                 console.log(todoList);
               }
 
+
+
   return (
+    <View>
+      <Header title="Task add APP"/>
     <View style={styles.container}>
+
      <View>
        <TextInput 
        placeholder='Entre a task a se fazer'
@@ -34,12 +40,13 @@ export default function App() {
        ><Text>{todo}</Text></View>)}
      </ScrollView>
     </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 60,
+    padding: 30,
   },
   textInput:{
     padding: 10,
